@@ -8,8 +8,8 @@ const routes = require('./source/routes');
 const init = async () => {
     // Membuat instance server Hapi
     const server = Hapi.Server({
-        host: 'localhost',
-        port: 1234 // Menetapkan host dan port server
+        host: process.env.NODE_ENV !== 'production' ? 'localhost' : '0.0.0.0',
+        port: 4000 // Menetapkan host dan port server
     });
     await server.register([{
         plugin:require ("hapi-geo-locate"),
