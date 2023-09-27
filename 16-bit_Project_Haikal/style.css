@@ -1,0 +1,380 @@
+/* mengambil font dari google font */
+@import url("https://fonts.googleapis.com/css2?family=Righteous&display=swap"); /* universal */
+@import url("https://fonts.googleapis.com/css2?family=Play:wght@700&display=swap");
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Body */
+
+body {
+  height: 100vh;
+  /* memanggil nama font */
+  font-family: "Play", sans-serif;
+  margin: 0;
+  /* menggunakan bg image */
+  background-image: url(back.jpg);
+  /* background-image: url(bgkc.jpg); */
+  background-repeat: no-repeat;
+
+  /* mengatur posisi dan ukuran bg */
+  background-size: cover;
+  background-position: center;
+  /* flexbox */
+  display: flex;
+  flex-direction: column;
+}
+
+/* header */
+
+/* Atur navbar */
+header.navbar-container {
+  max-width: 12000px;
+  width: 100%;
+  max-height: 80px;
+  margin-inline: auto;
+  display: flex;
+  /* atur tata letak flex  */
+  justify-content: space-around;
+  align-items: center;
+  padding-block: 1rem;
+  z-index: 999;
+  box-shadow: 2px 2px 8px 0px rgba(0, 0, 0, 0.5);
+}
+
+/* logo  dalam navbar*/
+header.navbar-container .logo img {
+  width: 200px;
+  height: 200px;
+}
+
+/*  */
+
+header.navbar-container .nav-list ul {
+  display: flex;
+  list-style: none;
+  width: 90%;
+  justify-content: end;
+}
+
+/* Menghilangkan gaya penulisan pada elemen  */
+header.navbar-container .nav-list li {
+  list-style-type: none;
+}
+
+/* mengatur elemen a */
+header.navbar-container .nav-list li a {
+  text-decoration: none;
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: rgb(0, 0, 0);
+  padding: 0.5rem 1.5rem;
+  border-radius: 999px;
+  transition: all 0.2s ease-in-out;
+}
+
+/* hover a */
+header.navbar-container .nav-list li:hover a {
+  background-color: #000000;
+  color: white;
+}
+
+.content-container {
+  display: flex;
+  flex-grow: 1;
+}
+
+/* burger */
+.menu-toggle {
+  display: flex;
+  flex-direction: column;
+  height: 20px;
+  justify-content: space-between;
+  position: relative;
+  margin-right: 50px;
+}
+
+/* burger inuppt */
+.menu-toggle input {
+  position: absolute;
+  width: 45px;
+  height: 35px;
+  left: -12px;
+  top: -9px;
+  opacity: 0;
+  z-index: 2;
+}
+
+/* burger animation */
+.menu-toggle span:nth-child(2) {
+  /* background-color: #ff0000; */
+  transform-origin: 0 0;
+}
+
+.menu-toggle span:nth-child(4) {
+  /* background-color: aqua; */
+  transform-origin: 0 80%;
+}
+
+/* Animasi gerakan child  */
+
+.menu-toggle input:checked ~ span:nth-child(2) {
+  transform: rotate(45deg) translate(-1px, -1px);
+  -webkit-transform: rotate(45deg) translate(-1px, -1px);
+  -moz-transform: rotate(45deg) translate(-1px, -1px);
+  -ms-transform: rotate(45deg) translate(-1px, -1px);
+  -o-transform: rotate(45deg) translate(-1px, -1px);
+}
+
+/* menghilangkan garis child 3 */
+.menu-toggle input:checked ~ span:nth-child(3) {
+  transform: scale(0);
+  -webkit-transform: scale(0);
+  -moz-transform: scale(0);
+  -ms-transform: scale(0);
+  -o-transform: scale(0);
+}
+
+.menu-toggle input:checked ~ span:nth-child(4) {
+  transform: rotate(-45deg) translate(-1px, 0px);
+  -webkit-transform: rotate(-45deg) translate(-1px, 0px);
+  -moz-transform: rotate(-45deg) translate(-1px, 0px);
+  -ms-transform: rotate(-45deg) translate(-1px, 0px);
+  -o-transform: rotate(-45deg) translate(-1px, 0px);
+}
+
+/* membuat ikon burgerr */
+.menu-toggle span {
+  display: none;
+  width: 28px;
+  height: 3px;
+  background-color: #000000;
+  border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  transition: 0.3s;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -ms-transition: 0.3s;
+  -o-transition: 0.3s;
+}
+
+/* sidebar */
+
+.sidebar {
+  position: fixed;
+  top: 45vh;
+  left: 0;
+  width: 20px; /* Adjust the width as needed */
+  background-color: #f1f1f1;
+  box-shadow: 2px 2px 8px 0px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+.sidebar .social-media ul {
+  padding: 1.2rem 1.2rem;
+  margin: auto;
+  left: 20;
+  border: #000000 solid;
+  border-top-right-radius: 12px;
+  border-bottom-right-radius: 12px;
+  background-color: #f1f1f1;
+  box-shadow: 2px 2px 8px 0px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.sidebar .social-media li {
+  margin-bottom: 1rem;
+}
+
+.sidebar .social-media li a {
+  text-decoration: none;
+  font-size: 1.2rem;
+  color: rgb(0, 0, 0);
+  transition: all 0.1s ease-in-out;
+}
+/* main conten */
+main {
+  max-width: 1200px;
+  width: 100%;
+  margin-inline: auto;
+  padding: 2rem 4rem;
+  flex: 1;
+
+  display: flex;
+  align-items: center;
+}
+
+main .content {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+main .content .content-description {
+  flex: 1 1;
+}
+
+main .content .content-description .title {
+  font-size: 3.5rem;
+  margin-block: 1rem;
+}
+
+main .content .content-description p {
+  line-height: 1.5rem;
+  font-size: 1.2rem;
+}
+
+/* Button Read More */
+main .content .content-description button.read-more {
+  padding: 0.8rem 2.5rem;
+  margin-block-start: 0.5rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 1rem;
+  font-family: "Play", sans-serif;
+  color: rgb(242, 234, 234);
+  border: 3px solid transparent;
+  background-color: #000000;
+  cursor: pointer;
+  transition: all 0.15s ease-in;
+
+  position: relative;
+  overflow: hidden;
+}
+
+main .content .content-description button:hover {
+  border: 3px solid #000000;
+  color: #000000;
+  background-color: transparent;
+}
+
+/* aside image */
+
+main .content .content-image {
+  flex: 1;
+  display: flex;
+  /* Menggeser elemen aside ke kanan */
+  justify-content: flex-end;
+}
+
+main .content .content-image img {
+  margin: auto;
+  min-width: 250px;
+  width: 300px;
+}
+
+/* footer */
+
+footer.footer-container {
+  max-width: 12000px;
+  width: 100%;
+  max-height: 80px;
+  margin-inline: auto;
+  display: flex;
+  /* atur tata letak flex  */
+  justify-content: space-around;
+  align-items: center;
+  padding-block: 1rem;
+  z-index: 999;
+  background-color: rgba(0, 0, 0);
+}
+
+.footer-copyright {
+  display: flex;
+  font-size: 15px;
+  color: #fffbfb;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+  header.navbar-container .nav-list ul {
+    position: absolute;
+    right: 0;
+    flex-direction: column;
+    background-color: #ffffff;
+    justify-content: space-evenly;
+    top: 0;
+    width: max-content;
+    height: 50vh;
+    z-index: -1;
+    transform: translateX(100%);
+    -webkit-transform: translateX(100%);
+    -moz-transform: translateX(100%);
+    -ms-transform: translateX(100%);
+    -o-transform: translateX(100%);
+    transition: all 1s;
+    -webkit-transition: all 1s;
+    -moz-transition: all 1s;
+    -ms-transition: all 1s;
+    -o-transition: all 1s;
+  }
+
+  /* slide  */
+  header.navbar-container .nav-list ul.slide {
+    transform: translateX(0);
+    -webkit-transform: translateX(0);
+    -moz-transform: translateX(0);
+    -ms-transform: translateX(0);
+    -o-transform: translateX(0);
+  }
+  /* flex main conten */
+  main {
+    padding: 1rem 3rem;
+  }
+  .menu-toggle span {
+    display: flex;
+  }
+
+  main .content {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  main .content .content-description .title {
+    font-size: 3rem;
+  }
+
+  main .content .content-description p {
+    font-size: 1rem;
+  }
+
+  /* menghilangkan img */
+  main .content .content-image {
+    display: none;
+  }
+  /* ubah ukuran sosial mmeda */
+  .sidebar .social-media ul {
+    padding: 0.2rem 0.2rem;
+  }
+
+  /* footer */
+  footer {
+    display: flex;
+    background-color: #333;
+    color: #fff;
+    padding: 1rem;
+    justify-content: flex-start;
+
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }
+
+  .footer-copyright {
+    display: flex;
+    color: #fffbfb;
+  }
+}
